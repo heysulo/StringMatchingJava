@@ -1,6 +1,6 @@
-class KMP{
+class KMPDisplay{
 	public static void main(String[] args) {
-		String txt = "ABC ABCDAB ABCDABCDABDE ABCDABCDABDE";
+		String txt = "ABC ABCDAB ABCDABCDABDE ABCDABCDABDEABCDABCDABDEABCDABCDABDE";
 		String pat = "ABCDABD";
 		int []preft = new int[pat.length()];
 		int i,j,max;
@@ -20,8 +20,13 @@ class KMP{
 		}
 		preft[0] = -1;
 
+		System.out.println(txt);
 		for (i=0;i<txt.length()-pat.length() ; ) {
 			j=0;
+			for (max=0;max<i ;max++ ) {
+				System.out.print("-");
+			}
+			System.out.println(pat);
 			while (j<pat.length() && txt.charAt(i+j)==pat.charAt(j)){
 				j++;
 				if (j==pat.length()){
